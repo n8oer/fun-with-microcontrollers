@@ -2,6 +2,7 @@
 // Adafruit NeoPixel Digital RGB string '30' -  part: 1376
 // to use the Adafruit_NeoPixel library go to  http://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
 // I will try to post a video of the results
+
 #include <Adafruit_NeoPixel.h>
 #define PIN 6
 
