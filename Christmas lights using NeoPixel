@@ -1,0 +1,33 @@
+// this code on an Arduino Duemilanove connected to the
+// Adafruit NeoPixel Digital RGB string '30' -  part: 1376
+// to use the Adafruit_NeoPixel library go to  http://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
+// I will try to post a video of the results
+#include <Adafruit_NeoPixel.h>
+#define PIN 6
+
+int rr;
+int rg;
+int rb;
+int LL;     //OK I first used 'ln' for "led number" well 'n' can't be used, not sure why.
+            // I also tried 'll' and that did not pass Verify, that's lowercase L, not sure why.
+            // changing to uppercase works,
+           
+
+Adafruit_NeoPixel leds = Adafruit_NeoPixel(30, PIN, NEO_GRB + NEO_KHZ800);
+            // set for 30 lights
+            // PIN is set above to 6, the rest is from the stuff I downloaded
+
+void setup() {
+  leds.begin();
+  leds.show(); // Initialize all pixels to 'off'
+}
+
+void loop() {
+  rr = random(50); // 'rr' or 'random red' 50 seems to look the best, not to bright
+  rg = random(50); // so red, blue and green values are from 0 to 50 or is it 49?
+  rb = random(50);
+  LL = random(1, 31); the LL is the led number from 1 to 30
+  leds.setPixelColor(LL, rr, rg, rb); // set led LL to the random color
+  leds.show();  // this sends the code out pin 6 to the led string - I think
+  delay(50);    // you might find a longer delay to be better on a Christmas diplay
+}
